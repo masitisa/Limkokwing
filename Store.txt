@@ -1,0 +1,117 @@
+
+import { StatusBar } from 'react-native';
+import { StyleSheet, Text, View ,ImageBackground,ScrollView,TouchableOpacity} from 'react-native';
+
+const image = {  image:require('./assets/logo.png') };
+
+let SampleNameArray = [ 
+      {
+        name:"Faculty of Fashion & Lifestyle Creativity",
+        image:require('./assets/software.png'),
+        co:[1,4,5,6]
+      },
+      {
+        name:"Faculty of Architecture & The Build Envirinment",
+        image:require('./assets/software.png')},
+        
+      {
+        name: "Faculty of Communication, Media & Broadcasting",
+        image:require('./assets/broadcast.png')
+      },
+      {
+        name: "Faculty of Multimedia Creativity",
+        image:require('./assets/creative.png')
+      
+      },
+      {
+        name: "Faculty of Information & Communication Technology",
+        image:require('./assets/multimedia.png')
+      
+      },
+      {
+        name: "Limkokwing Sound & Music Design Academy",
+        image:require('./assets/music.png')
+      }
+     ];
+export default function App() {
+ 
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}></View>
+      <Text>logo</Text>
+
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+      <Text style={styles.text}>Inside</Text>
+    </ImageBackground>
+      <ScrollView>
+        <View style={styles.coarses}>
+          { SampleNameArray.map((item, name)=>(
+          <View key={name} style={styles.coarse}>
+            <ImageBackground source={item.image} resizeMode="cover" style={styles.image}>
+              <Text style={styles.coarseName}>{item.name}</Text>
+              <TouchableOpacity>
+                <View style={styles.coarseButton}>
+                  <Text style={{fontWeight:'bold' ,padding:5}}>Courses</Text>
+              </View>
+              </TouchableOpacity>
+              
+            </ImageBackground>
+
+          </View>)
+          )}
+        </View>
+        </ScrollView>
+        <StatusBar style='auto'/>
+    </View>
+)}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+
+  },
+  coarse:{
+    backgroundColor: image,
+    width:'100%',
+    marginVertical:5,
+    borderRadius:10,
+    
+    
+  },
+  coarseName:{
+    fontSize:25,
+    fontWeight:'bold',
+    alignSelf:'center',
+    color:'#40C4FF',
+    marginTop:40
+  },
+  image:{
+    width:'100%',
+    
+    borderRadius:30
+  },
+  text:{
+    color:'white'
+  },
+  coarses:{
+    width:'100%',
+    marginHorizontal:3
+  },
+  coarseButton:{
+    width:80,
+    borderRadius:20,
+    borderWidth:3,
+    alignSelf:'flex-end',
+    margin:10,
+    backgroundColor:'#EEEEEE'
+  }
+});
+
+
+
+  const head_size = scrollOffsetY.interpolate({
+    inputRange:[30, SIZE],
+    ouputtRange:[MAX_size,MIN_size],
+    extrapolate:"clam"
+  });
